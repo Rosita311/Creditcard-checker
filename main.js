@@ -24,13 +24,30 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Add your functions below:
-const validateCred = (array) => {
-    for
 
-    if
-
-    else
-};
+const validateCred = () => {
+    let card = [];
+    card = valid1.slice();
+    card.pop();
+    card.reverse();
+    // console.log(card);
+    for(let i = 0; i <= card.length; i += 2) {
+      card[i] *= 2;
+    }
+    for(let i = 0; i <= card.length; i++) {
+      if(card[i] > 9) {
+        return card[i] -= 9;
+      }
+     }
+     let sumTotal = card.reduce((a, b) => a + b, 0);
+     let num = sumTotal + valid1.pop();
+      if (num % 10 === 0) {
+        return true;
+      } else {
+        return false;
+    }
+  };
+  console.log(validateCred());
 
 
 
